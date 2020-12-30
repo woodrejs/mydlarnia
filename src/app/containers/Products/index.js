@@ -1,14 +1,9 @@
 import React from "react";
-import styled from "styled-components";
-import Product from "../../components/Product";
 import { v4 as uuidv4 } from "uuid";
+import { StyledProducts } from "./index.css";
+import Product from "../../components/Product";
 import LgImg from "../../assets/images/soap_1.JPG";
 
-const StyledProducts = styled.section`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-`;
 const DATA = [
   {
     id: uuidv4(),

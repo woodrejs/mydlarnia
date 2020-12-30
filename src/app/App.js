@@ -21,3 +21,9 @@ const App = () => {
   );
 };
 export default App;
+/*
+        <Home />
+      <Products />
+        <Gallery />
+      <Contact />
+      */
