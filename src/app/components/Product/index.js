@@ -8,9 +8,11 @@ const StyledProduct = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(2, 1fr);
 
-  @media screen and (orientation: landscape) {
+  min-height: 150vw;
+
+  @media screen and (orientation: landscape) and (min-width: 1024px) {
     margin-bottom: 5vh;
-    height: 60vh;
+    min-height: 60vh;
     max-height: 1080px;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr;
@@ -22,16 +24,54 @@ const StyledArticle = styled.article`
   width: 100%;
   height: 100%;
 
+  padding: 1.5em;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  @media screen and (orientation: landscape) {
+  @media screen and (orientation: landscape) and (min-width: 1024px) {
     align-items: flex-start;
+    padding: 0;
     grid-area: ${(props) => (props.invert ? "1/2/2/6" : "1/8/2/12")};
   }
 `;
+const StyledTitle = styled.h2`
+  line-height: 95%;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 4vw, 3.5rem);
+  color: ${({ color }) => color.txt};
+  text-align: center;
+
+  @media screen and (orientation: landscape) and (min-width: 1024px) {
+    text-align: left;
+  }
+`;
+const StyledText = styled.p`
+  line-height: 140%;
+  font-size: clamp(0.8em, 3vw, 1.1em);
+  font-weight: 400;
+  color: ${({ color }) => color.txt};
+  text-align: center;
+
+  @media screen and (orientation: landscape) and (min-width: 1024px) {
+    text-align: left;
+  }
+`;
+const StyledImgBox = styled.div`
+  background: blue;
+  grid-area: 2/1/3/13;
+  width: 100%;
+  height: 100%;
+
+  @media screen and (orientation: landscape) and (min-width: 1024px) {
+    grid-area: ${(props) => (props.invert ? "1/7/2/12" : "1/2/2/7")};
+  }
+`;
+///
 const StyledImg = styled.img`
   background: red;
   grid-area: 2/1/3/13;
@@ -41,26 +81,6 @@ const StyledImg = styled.img`
   @media screen and (orientation: landscape) {
     grid-area: ${(props) => (props.invert ? "1/7/2/12" : "1/2/2/7")};
     width: 100%;
-  }
-`;
-const StyledTitle = styled.h2`
-  line-height: 95%;
-  font-size: 4rem;
-  color: ${({ color }) => color.txt};
-  text-align: center;
-
-  @media screen and (orientation: landscape) {
-    text-align: left;
-  }
-`;
-const StyledText = styled.p`
-  line-height: 140%;
-  font-size: 1.2rem;
-  color: ${({ color }) => color.txt};
-  text-align: center;
-
-  @media screen and (orientation: landscape) {
-    text-align: left;
   }
 `;
 
@@ -75,16 +95,18 @@ const Product = ({ data }) => {
         <StyledTitle children={title} color={txt} />
         <StyledText children={text} color={txt} />
       </StyledArticle>
+      <StyledImgBox invert={invert} />
+    </StyledProduct>
+  );
+};
 
-      <StyledImg
+export default Product;
+/*
+<StyledImg
         srcSet={`${sm} 736w,${md} 1024w,${lg} 1520w`}
         sizes="(max-width: 736px) 736px,(max-width: 1024px) 1024px, 1520px"
         src={`${lg}`}
         alt={alt}
         invert={invert}
       />
-    </StyledProduct>
-  );
-};
-
-export default Product;
+      */

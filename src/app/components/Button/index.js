@@ -7,7 +7,7 @@ const StyledButton = styled.button`
   border: none;
   cursor: pointer;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 800;
   letter-spacing: 1px;
   font-size: 0.75rem;
 `;

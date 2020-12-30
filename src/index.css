@@ -5,4 +5,28 @@
 }
 body {
   overflow-x: hidden;
+  font-family: "Montserrat";
+}
+
+/*fonts*/
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url(./app/assets/fonts/Montserrat-Bold.ttf) format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url(./app/assets/fonts/Montserrat-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url(./app/assets/fonts/Montserrat-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
 }

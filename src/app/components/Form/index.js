@@ -5,9 +5,11 @@ import Button from "../Button";
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  margin-bottom: 20vh;
 
-  @media screen and (orientation: landscape) {
+  padding: 4rem 1rem;
+  overflow: hidden;
+
+  @media screen and (orientation: landscape) and (min-width: 800px) {
     margin-bottom: unset;
   }
 `;
@@ -17,29 +19,46 @@ const StyledInput = styled.input`
   border-bottom: 1px solid ${({ theme }) => theme.colors.secound};
   margin-bottom: 2rem;
   padding: 0.5em;
+  @media screen and (orientation: landscape) and (min-width: 1280px) {
+    max-width: 35vw;
+  }
 `;
 const StyledTextarea = styled.textarea`
-  margin-top: 1rem;
   border: none;
   border-bottom: 1px solid ${({ theme }) => theme.colors.secound};
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding: 0.5em;
+  @media screen and (orientation: landscape) and (min-width: 1280px) {
+    max-width: 35vw;
+  }
 `;
 const StyledBtn = styled(Button)`
   height: 5em;
   width: 15em;
   align-self: center;
   margin-top: 3rem;
-  @media screen and (orientation: landscape) {
+  @media screen and (orientation: landscape) and (min-width: 800px) {
     align-self: unset;
   }
 `;
 const StyledLabel = styled.label`
-  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: clamp(0.8rem, 2.5vw, 1.5rem);
+
+  @media screen and (min-width: 800px) and (orientation: landscape) {
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+  }
 `;
 const StyledTitle = styled.h2`
-  margin-bottom: 5rem;
-  font-size: 3rem;
+  margin-bottom: 4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+
+  @media screen and (min-width: 800px) and (orientation: landscape) {
+    font-size: clamp(2rem, 3vw, 3rem);
+  }
 `;
 
 const Form = ({ className }) => {
@@ -75,7 +94,7 @@ const Form = ({ className }) => {
         name="message"
         id="message"
         cols="30"
-        rows="5"
+        rows="3"
         onChange={(e) => handleInput(e, "message")}
       />
       <StyledBtn children="wyślij" />

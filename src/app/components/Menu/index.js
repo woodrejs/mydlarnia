@@ -16,14 +16,19 @@ const StyledMenu = styled.nav`
 `;
 const StyledMenuItem = styled.div`
   display: none;
-  font-weight: bold;
+  font-size: clamp(0.6rem, 1.2vw, 0.9rem);
+  font-weight: 600;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  @media screen and (orientation: landscape) {
+
+  @media screen and (orientation: landscape) and (min-width: 800px) {
     display: flex;
   }
 `;
 const StyledHamburger = styled.img`
-  @media screen and (orientation: landscape) {
+  height: clamp(1.1rem, 4vw, 1.6rem);
+
+  @media screen and (orientation: landscape) and (min-width: 800px) {
     display: none;
   }
 `;
