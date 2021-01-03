@@ -11,7 +11,7 @@ import MDBronw from "../../assets/images/Products/brown/brown_1024.JPG";
 const DATA = [
   {
     id: uuidv4(),
-    color: { bck: "#E5C24D", txt: "#2B2A32" },
+    color: { bck: "rgba(229.0, 194.0, 77.0, 0.8) ", txt: "#2B2A32" },
     invert: false,
     title: "mydło cytrusowe",
     text:
@@ -24,7 +24,7 @@ const DATA = [
   },
   {
     id: uuidv4(),
-    color: { bck: "#D587C4", txt: "#2B2A32" },
+    color: { bck: "rgba(213.0, 135.0, 196.0, 0.8) ", txt: "#2B2A32" },
     invert: true,
     title: "mydło malinowe",
     text:
@@ -37,7 +37,7 @@ const DATA = [
   },
   {
     id: uuidv4(),
-    color: { bck: "#492B1D", txt: "#FFFFFF" },
+    color: { bck: "rgba(73.0, 43.0, 29.0, 0.8) ", txt: "#FFFFFF" },
     invert: false,
     title: "mydło czekoladowe",
     text:

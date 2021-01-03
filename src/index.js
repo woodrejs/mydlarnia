@@ -4,6 +4,8 @@ import App from "./app/App";
 import { ThemeProvider } from "styled-components";
 import "./index.css";
 
+require("dotenv").config();
+
 const theme = {
   colors: {
     first: "#FFFFFF",

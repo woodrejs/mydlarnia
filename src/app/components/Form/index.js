@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 import { TextVariants, InputVariants } from "../../utils/motion";
 import {
   StyledForm,
@@ -10,10 +11,45 @@ import {
 } from "./index.css";
 
 const Form = ({ className, inView }) => {
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState({
+    email: "",
+    message: "",
+    name: "",
+  });
+  const { message, name, email } = formData;
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("zrob walidacje");
+    const { message, name, email } = formData;
+    const Req1 = new RegExp(/^[a-z ,.'-]+$/i);
+    const Req2 = new RegExp(/^[a-z0-9 _.,-]*$/i);
+    const Req3 = new RegExp(
+      "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+    );
+
+    if (name === "" || message === "" || email === "")
+      return alert("Pola nie moga być puste.");
+    if (!Req1.test(name)) return alert("Niepoprawne imie i nazwisko.");
+    if (!Req2.test(message)) return alert("Niepoprawny wiadomość.");
+    if (!Req3.test(email)) return alert("Niepoprawny adres email.");
+
+    // send emaail
+    const templateParams = { message, name, email };
+    const {
+      REACT_APP_SERVICE_ID,
+      REACT_APP_TEMPLATE_ID,
+      REACT_APP_USER_ID,
+    } = process.env;
+
+    emailjs
+      .send(
+        REACT_APP_SERVICE_ID,
+        REACT_APP_TEMPLATE_ID,
+        templateParams,
+        REACT_APP_USER_ID
+      )
+      .then(() => setFormData({ email: "", message: "", name: "" }))
+      .catch((err) => console.log("FAILED...", err));
   };
   const handleInput = (e, name) => {
     setFormData({ ...formData, [name]: e.target.value });
@@ -38,6 +74,7 @@ const Form = ({ className, inView }) => {
         id="name"
         type="text"
         name="name"
+        value={name}
         variants={InputVariants}
         animate={inView ? "animate" : null}
         initial="initial"
@@ -55,6 +92,7 @@ const Form = ({ className, inView }) => {
         id="email"
         type="email"
         name="email"
+        value={email}
         variants={InputVariants}
         animate={inView ? "animate" : null}
         initial="initial"
@@ -70,6 +108,7 @@ const Form = ({ className, inView }) => {
       <StyledTextarea
         name="message"
         id="message"
+        value={message}
         cols="30"
         rows="3"
         variants={InputVariants}

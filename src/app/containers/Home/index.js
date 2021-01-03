@@ -17,10 +17,13 @@ import {
 } from "./index.css";
 
 const Home = () => {
+  const handleBtn = (target) =>
+    document.getElementById(`${target}`).scrollIntoView();
+
   return (
     <StyledHome id="home">
       <StyledMenu />
-      <StyledBtn children="zamów" />
+      <StyledBtn children="zamów" click={() => handleBtn("contact")} />
 
       <StyledArticle>
         <StyledTitle
@@ -36,7 +39,7 @@ const Home = () => {
           children="It is a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout."
         />
-        <StyledBtn2 children="oferta" />
+        <StyledBtn2 children="oferta" click={() => handleBtn("products")} />
       </StyledArticle>
 
       <StyledImgBox>
