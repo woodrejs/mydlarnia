@@ -1,5 +1,8 @@
 import React from "react";
-import LgImg from "../../assets/images/soap_1.JPG";
+import { TextVariants, ImageVariants } from "../../utils/motion";
+import ImgSm from "../../assets/images/Home/home_400.JPG";
+import ImgMd from "../../assets/images/Home/home_700.JPG";
+import ImgLg from "../../assets/images/Home/home_1000.JPG";
 import {
   StyledHome,
   StyledMenu,
@@ -10,28 +13,42 @@ import {
   StyledBtn2,
   StyledImgBox,
   StyledImg,
+  StyledMask,
 } from "./index.css";
 
 const Home = () => {
   return (
-    <StyledHome>
+    <StyledHome id="home">
       <StyledMenu />
       <StyledBtn children="zamów" />
+
       <StyledArticle>
-        <StyledTitle>mydlarnia u mirka</StyledTitle>
-        <StyledText>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout.
-        </StyledText>
+        <StyledTitle
+          variants={TextVariants}
+          animate="animate"
+          initial="initial"
+          children="mydlarnia u mirka"
+        />
+        <StyledText
+          variants={TextVariants}
+          animate="animate"
+          initial="initial"
+          children="It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout."
+        />
         <StyledBtn2 children="oferta" />
       </StyledArticle>
 
       <StyledImgBox>
+        <StyledMask />
         <StyledImg
-          srcSet={`${LgImg} 736w,${LgImg} 1024w,${LgImg} 1520w`}
-          sizes="(max-width: 736px) 736px,(max-width: 1024px) 1024px, 1520px"
-          src={`${LgImg}`}
+          srcSet={`${ImgSm} 400w,${ImgMd} 700w,${ImgLg} 1000w`}
+          sizes=" 100vw,(min-width: 800px) 40vw"
+          src={`${ImgLg}`}
           alt={"product_img"}
+          variants={ImageVariants}
+          animate="animate"
+          initial="initial"
         />
       </StyledImgBox>
     </StyledHome>

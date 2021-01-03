@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import Menu from "../Menu";
 
 export const StyledFooter = styled.div`
   z-index: 1;
   height: 100%;
 `;
-export const StyledCopywriter = styled.h5`
+export const StyledCopywriter = styled(motion.h5)`
   @media screen and (orientation: landscape) and (min-width: 800px) {
     grid-area: 1/2/2/4;
     text-align: left;

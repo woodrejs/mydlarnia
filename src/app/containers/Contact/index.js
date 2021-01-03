@@ -1,5 +1,7 @@
 import React from "react";
-import LgImg from "../../assets/images/soap_1.JPG";
+import { ImageVariants } from "../../utils/motion";
+import { useInView } from "react-intersection-observer";
+import Img from "../../assets/images/Contact/Contact_800.JPG";
 import {
   StyledContact,
   StyledForm,
@@ -9,16 +11,18 @@ import {
 } from "./index.css";
 
 const Contact = () => {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   return (
-    <StyledContact>
-      <StyledForm />
-      <StyledFooter />
+    <StyledContact id="contact" ref={ref}>
+      <StyledForm inView={inView} />
+      <StyledFooter inView={inView} />
       <StyledImgBox>
         <StyledImg
-          srcSet={`${LgImg} 736w,${LgImg} 1024w,${LgImg} 1520w`}
-          sizes="(max-width: 736px) 736px,(max-width: 1024px) 1024px, 1520px"
-          src={`${LgImg}`}
-          alt={"product_img"}
+          src={Img}
+          alt={"contact_img"}
+          variants={ImageVariants}
+          animate={inView ? "animate" : null}
+          initial="initial"
         />
       </StyledImgBox>
     </StyledContact>

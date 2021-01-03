@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { TextVariants, InputVariants } from "../../utils/motion";
 import {
   StyledForm,
   StyledInput,
@@ -8,7 +9,7 @@ import {
   StyledTitle,
 } from "./index.css";
 
-const Form = ({ className }) => {
+const Form = ({ className, inView }) => {
   const [formData, setFormData] = useState();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,28 +21,60 @@ const Form = ({ className }) => {
 
   return (
     <StyledForm onSubmit={handleSubmit} className={className}>
-      <StyledTitle children="Napisz do nas" />
-      <StyledLabel htmlFor="name" children="Imię i Nazwisko" />
+      <StyledTitle
+        children="Napisz do nas"
+        variants={TextVariants}
+        animate={inView ? "animate" : null}
+        initial="initial"
+      />
+      <StyledLabel
+        htmlFor="name"
+        children="Imię i Nazwisko"
+        variants={TextVariants}
+        animate={inView ? "animate" : null}
+        initial="initial"
+      />
       <StyledInput
         id="name"
         type="text"
         name="name"
+        variants={InputVariants}
+        animate={inView ? "animate" : null}
+        initial="initial"
         onChange={(e) => handleInput(e, "name")}
       />
 
-      <StyledLabel htmlFor="email" children="Email" />
+      <StyledLabel
+        htmlFor="email"
+        children="Email"
+        variants={TextVariants}
+        animate={inView ? "animate" : null}
+        initial="initial"
+      />
       <StyledInput
         id="email"
         type="email"
         name="email"
+        variants={InputVariants}
+        animate={inView ? "animate" : null}
+        initial="initial"
         onChange={(e) => handleInput(e, "email")}
       />
-      <StyledLabel htmlFor="message" children="Wiadomość" />
+      <StyledLabel
+        htmlFor="message"
+        children="Wiadomość"
+        variants={TextVariants}
+        animate={inView ? "animate" : null}
+        initial="initial"
+      />
       <StyledTextarea
         name="message"
         id="message"
         cols="30"
         rows="3"
+        variants={InputVariants}
+        animate={inView ? "animate" : null}
+        initial="initial"
         onChange={(e) => handleInput(e, "message")}
       />
       <StyledBtn children="wyślij" />

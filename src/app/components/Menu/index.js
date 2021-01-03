@@ -1,65 +1,40 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Hamburger from "../../assets/icons/hamburger.svg";
-
-const StyledMenu = styled.nav`
-  z-index: 1;
-  text-transform: uppercase;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
-  @media screen and (orientation: landscape) {
-    justify-content: space-between;
-  }
-`;
-const StyledMenuItem = styled.div`
-  display: none;
-  font-size: clamp(0.6rem, 1.2vw, 0.9rem);
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-
-  @media screen and (orientation: landscape) and (min-width: 800px) {
-    display: flex;
-  }
-`;
-const StyledHamburger = styled.img`
-  height: clamp(1.1rem, 4vw, 1.6rem);
-
-  @media screen and (orientation: landscape) and (min-width: 800px) {
-    display: none;
-  }
-`;
+import DeskopMenu from "./DeskopMenu";
+import MobileMenu from "./MobileMenu";
 
 const DATA = [
   {
     id: uuidv4(),
     name: "start",
+    hash: "home",
   },
   {
     id: uuidv4(),
-    name: "oferta",
+    name: "produkty",
+    hash: "products",
   },
   {
     id: uuidv4(),
-    name: "o nas",
+    name: "galeria",
+    hash: "gallery",
   },
   {
     id: uuidv4(),
     name: "kontakt",
+    hash: "contact",
   },
 ];
 
 const Menu = ({ className }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const handleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
-    <StyledMenu className={className}>
-      {DATA.map(({ id, name }) => (
-        <StyledMenuItem key={id} children={name} />
-      ))}
-      <StyledHamburger src={Hamburger} alt="hamburger_menu_icon" />
-    </StyledMenu>
+    <>
+      <DeskopMenu DATA={DATA} click={handleMenu} className={className} />
+      <MobileMenu DATA={DATA} click={handleMenu} isMenuOpen={isMenuOpen} />
+    </>
   );
 };
 export default Menu;

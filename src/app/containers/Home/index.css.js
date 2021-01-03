@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Button from "../../components/Button";
 import Menu from "../../components/Menu";
+import { motion } from "framer-motion";
 
 export const StyledHome = styled.section`
   height: 100vh;
@@ -38,12 +39,12 @@ export const StyledBtn = styled(Button)`
   }
   @media screen and (orientation: landscape) and (min-width: 800px) {
     grid-area: 1/10/2/12;
-    width: 10em;
-    height: 3em;
+    width: 10w;
+    height: 5vh;
   }
 `;
 export const StyledArticle = styled.div`
-  z-index: 1;
+  z-index: 2;
   grid-area: 2/2/3/12;
 
   display: flex;
@@ -56,43 +57,46 @@ export const StyledArticle = styled.div`
     grid-area: 2/2/3/7;
   }
 `;
-export const StyledTitle = styled.h1`
+export const StyledTitle = styled(motion.h1)`
   font-size: clamp(2.5rem, 12vw, 6rem);
   line-height: 95%;
   font-weight: 800;
   text-transform: uppercase;
   margin-bottom: 3vh;
-  color: ${({ theme }) => theme.colors.secound};
+  color: ${({ theme }) => theme.colors.first};
   text-align: center;
 
   @media screen and (orientation: landscape) {
     font-size: clamp(2.2rem, 6vw, 6rem);
   }
   @media screen and (orientation: landscape) and (min-width: 800px) {
+    color: ${({ theme }) => theme.colors.secound};
     text-align: left;
   }
 `;
-export const StyledText = styled.p`
+export const StyledText = styled(motion.p)`
   text-align: center;
   font-size: clamp(0.8rem, 4vw, 1.5rem);
   margin-bottom: 12vh;
   line-height: 140%;
+  color: ${({ theme }) => theme.colors.first};
 
   @media screen and (orientation: landscape) {
-    font-size: clamp(0.8rem, 2vw, 1.3rem);
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
     max-width: 80vw;
   }
   @media screen and (orientation: landscape) and (min-width: 800px) {
+    color: ${({ theme }) => theme.colors.secound};
     text-align: left;
   }
 `;
 export const StyledBtn2 = styled(Button)`
-  width: clamp(15em, 50vw, 35em);
-  height: clamp(5em, 12vw, 12em);
+  width: clamp(10em, 40vw, 35em);
+  height: clamp(3em, 8vh, 12em);
 
   @media screen and (orientation: landscape) {
-    width: clamp(15em, 25vw, 22em);
-    height: clamp(4em, 6vw, 6em);
+    width: clamp(12em, 15vw, 18em);
+    height: clamp(3em, 7vw, 5em);
   }
 `;
 export const StyledImgBox = styled.div`
@@ -109,6 +113,19 @@ export const StyledImgBox = styled.div`
     grid-area: 1/8/3/13;
   }
 `;
-export const StyledImg = styled.img`
+export const StyledImg = styled(motion.img)`
   position: absolute;
+  width: 100%;
+  min-height: 100%;
+`;
+export const StyledMask = styled(motion.div)`
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background: black;
+  z-index: 1;
+  opacity: 0.5;
+  @media screen and (orientation: landscape) and (min-width: 800px) {
+    display: none;
+  }
 `;

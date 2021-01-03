@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const StyledImgBox = styled.div`
   position: relative;
@@ -9,6 +10,7 @@ export const StyledImgBox = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const StyledImg = styled.img`
+export const StyledImg = styled(motion.img)`
   position: absolute;
+  width: 100%;
 `;

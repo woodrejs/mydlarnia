@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import Button from "../Button";
 
 export const StyledForm = styled.form`
@@ -12,7 +13,8 @@ export const StyledForm = styled.form`
     margin-bottom: unset;
   }
 `;
-export const StyledInput = styled.input`
+export const StyledInput = styled(motion.input)`
+  transform-origin: left;
   border: none;
   height: 3em;
   border-bottom: 1px solid ${({ theme }) => theme.colors.secound};
@@ -22,7 +24,8 @@ export const StyledInput = styled.input`
     max-width: 35vw;
   }
 `;
-export const StyledTextarea = styled.textarea`
+export const StyledTextarea = styled(motion.textarea)`
+  transform-origin: left;
   border: none;
   border-bottom: 1px solid ${({ theme }) => theme.colors.secound};
   margin-bottom: 1rem;
@@ -33,14 +36,15 @@ export const StyledTextarea = styled.textarea`
 `;
 export const StyledBtn = styled(Button)`
   height: 5em;
-  width: 15em;
+  width: 17em;
   align-self: center;
   margin-top: 3rem;
+
   @media screen and (orientation: landscape) and (min-width: 800px) {
     align-self: unset;
   }
 `;
-export const StyledLabel = styled.label`
+export const StyledLabel = styled(motion.label)`
   font-weight: 600;
   text-transform: uppercase;
   font-size: clamp(0.8rem, 2.5vw, 1.5rem);
@@ -49,7 +53,7 @@ export const StyledLabel = styled.label`
     font-size: clamp(0.8rem, 1.5vw, 1rem);
   }
 `;
-export const StyledTitle = styled.h2`
+export const StyledTitle = styled(motion.h2)`
   margin-bottom: 4rem;
   font-weight: 800;
   text-transform: uppercase;

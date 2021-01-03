@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import Form from "../../components/Form";
 import Footer from "../../components/Footer";
 
@@ -31,12 +32,16 @@ export const StyledImgBox = styled.div`
 
   display: none;
   @media screen and (orientation: landscape) and (min-width: 800px) {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-area: 1/1/3/5;
     width: 100%;
     height: 100%;
   }
 `;
-export const StyledImg = styled.img`
+export const StyledImg = styled(motion.img)`
   position: absolute;
+  min-height: 100%;
+  width: 100%;
 `;

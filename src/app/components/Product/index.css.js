@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import ProductImg from "./ProductImg";
 
-export const StyledTitle = styled.h2`
+export const StyledTitle = styled(motion.h2)`
   line-height: 95%;
   font-weight: 800;
   text-transform: uppercase;
@@ -14,7 +15,7 @@ export const StyledTitle = styled.h2`
     text-align: left;
   }
 `;
-export const StyledText = styled.p`
+export const StyledText = styled(motion.p)`
   line-height: 140%;
   font-size: clamp(0.8em, 3vw, 1.1em);
   font-weight: 400;

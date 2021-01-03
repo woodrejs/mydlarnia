@@ -3,6 +3,10 @@ import { v4 as uuidv4 } from "uuid";
 import { StyledProducts } from "./index.css";
 import Product from "../../components/Product";
 import LgImg from "../../assets/images/soap_1.JPG";
+import LGYellow from "../../assets/images/Products/yellow/yellow_740.JPG";
+import LGPink from "../../assets/images/Products/pink/pink_740.JPG";
+import LGBronw from "../../assets/images/Products/brown/brown_740.JPG";
+import MDBronw from "../../assets/images/Products/brown/brown_1024.JPG";
 
 const DATA = [
   {
@@ -14,8 +18,8 @@ const DATA = [
       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     imgs: {
       sm: LgImg,
-      md: LgImg,
-      lg: LgImg,
+      md: LGYellow,
+      lg: LGYellow,
     },
   },
   {
@@ -28,7 +32,7 @@ const DATA = [
     imgs: {
       sm: LgImg,
       md: LgImg,
-      lg: LgImg,
+      lg: LGPink,
     },
   },
   {
@@ -40,15 +44,15 @@ const DATA = [
       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     imgs: {
       sm: LgImg,
-      md: LgImg,
-      lg: LgImg,
+      md: MDBronw,
+      lg: LGBronw,
     },
   },
 ];
 
 const Products = () => {
   return (
-    <StyledProducts>
+    <StyledProducts id="products">
       {DATA.map((data) => (
         <Product key={data.id} data={data} />
       ))}
